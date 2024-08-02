@@ -15,7 +15,7 @@ class CreditCard extends StatelessWidget {
             Expanded(
               flex: 2,
               child: Container(
-                color: Color.fromARGB(255, 14, 19, 29),
+                color: const Color.fromARGB(255, 14, 19, 29),
                 child: Stack(
                   children: [
                     Positioned(
@@ -26,12 +26,13 @@ class CreditCard extends StatelessWidget {
                         height: 40,
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       bottom: 16,
                       left: 16,
-                      child: Text(
+                      child: const Text(
                         "**** **** **** 1932",
-                        style: TextStyle(color: Colors.white, fontSize: 18),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
                   ],
@@ -47,8 +48,8 @@ class CreditCard extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
-                        '\Rp 27.250.780',
+                      Text(
+                        'Rp 27.250.780',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 24,

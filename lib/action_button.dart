@@ -17,19 +17,19 @@ class ActionButtons extends StatelessWidget {
         child: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const ActionButton(
+            ActionButton(
               icon: Icons.account_balance,
               label: 'Deposit',
             ),
-            const ActionButton(
+            ActionButton(
               icon: Icons.swap_horiz,
               label: 'Transfer',
             ),
-            const ActionButton(
+            ActionButton(
               icon: Icons.attach_money,
               label: 'WithDraw',
             ),
-            const ActionButton(
+            ActionButton(
               icon: Icons.apps_sharp,
               label: 'More',
             ),
