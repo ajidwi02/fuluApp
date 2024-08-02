@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class TransactionList extends StatelessWidget {
   const TransactionList({super.key});
@@ -11,7 +10,7 @@ class TransactionList extends StatelessWidget {
         children: [
           const Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Today, Aug 2"),

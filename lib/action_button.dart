@@ -14,22 +14,22 @@ class ActionButtons extends StatelessWidget {
         decoration: BoxDecoration(
             color: const Color.fromARGB(255, 239, 243, 245),
             borderRadius: BorderRadius.circular(15)),
-        child: Row(
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            ActionButton(
+            const ActionButton(
               icon: Icons.account_balance,
               label: 'Deposit',
             ),
-            ActionButton(
+            const ActionButton(
               icon: Icons.swap_horiz,
               label: 'Transfer',
             ),
-            ActionButton(
+            const ActionButton(
               icon: Icons.attach_money,
               label: 'WithDraw',
             ),
-            ActionButton(
+            const ActionButton(
               icon: Icons.apps_sharp,
               label: 'More',
             ),
