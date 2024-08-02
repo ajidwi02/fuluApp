@@ -14,7 +14,7 @@ class TransactionList extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Today, Aug 1"),
+                Text("Today, Aug 2"),
                 Row(
                   children: [Text("Transactions")],
                 ),
