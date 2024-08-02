@@ -44,7 +44,7 @@ class Home extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Selamat Datang",
+                        "Welcome Back",
                         style: TextStyle(color: Colors.white),
                       ),
                       Text(
