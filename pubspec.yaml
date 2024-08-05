@@ -60,6 +60,9 @@ flutter:
   assets:
     - assets/chip.png
     - assets/wifi-signal.png
+    - assets/Mar.jpg
+    - assets/card-design.jpg
+    - assets/back-card1.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
