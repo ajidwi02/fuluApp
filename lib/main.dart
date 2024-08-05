@@ -1,8 +1,13 @@
+import 'package:fintech_app/pages/activity.dart';
+import 'package:fintech_app/pages/home.dart';
+import 'package:fintech_app/pages/myCard.dart';
+import 'package:fintech_app/pages/profile.dart';
+import 'package:fintech_app/pages/scan.dart';
 import 'package:flutter/material.dart';
 
-import 'action_button.dart';
-import 'credit_card.dart';
-import 'transaction_list.dart';
+import 'widget/action_button.dart';
+import 'widget/credit_card.dart';
+import 'widget/transaction_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,149 +24,82 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(
               seedColor: const Color.fromARGB(255, 16, 80, 90)),
           useMaterial3: true),
-      home: const Home(),
+      home: const MainPage(),
     );
   }
 }
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
 
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  int currentIndex = 0;
+
+  final List<Widget> pages = [
+    const Home(),
+    const MyCardPage(),
+    const ScanPage(),
+    const ActivityPage(),
+    const ProfilePage()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 16, 80, 90),
-      body: SafeArea(
-        bottom: false,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Welcome Back",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Text(
-                        "Aji Dwi Prakoso",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                  const Spacer(),
-                  IconButton.outlined(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.notifications,
-                        color: Colors.white,
-                      ))
-                ],
-              ),
-            ),
-            Expanded(
-              child: Stack(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(top: 167),
-                    color: Colors.white,
-                    child: const Column(
-                      children: [
-                        SizedBox(
-                          height: 110,
-                        ),
-                        ActionButtons(),
-                        SizedBox(height: 30),
-                        TransactionList()
-                      ],
-                    ),
-                  ),
-                  const Positioned(
-                    top: 20,
-                    left: 25,
-                    right: 25,
-                    child: CreditCard(),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
+      body: pages[currentIndex],
       bottomNavigationBar: BottomAppBar(
         color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Column(
-                children: [
-                  Icon(Icons.home),
-                  Text(
-                    "Home",
-                    style: TextStyle(fontSize: 10),
-                  )
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Column(
-                children: [
-                  Icon(Icons.credit_card),
-                  Text(
-                    "My Card",
-                    style: TextStyle(fontSize: 10),
-                  )
-                ],
-              ),
-            ),
+            tabItem(Icons.home, "Home", 0),
+            tabItem(Icons.credit_card, "My Card", 1),
             FloatingActionButton(
-              onPressed: () {},
-              backgroundColor: const Color.fromARGB(255, 16, 80, 90),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: const Icon(
+              onPressed: () => onTabTapped(2),
+              backgroundColor: Color.fromARGB(255, 16, 80, 90),
+              child: Icon(
                 Icons.qr_code_scanner,
                 color: Colors.white,
               ),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
             ),
-            IconButton(
-              onPressed: () {},
-              icon: const Column(
-                children: [
-                  Icon(Icons.bar_chart),
-                  Text(
-                    "Activity",
-                    style: TextStyle(fontSize: 10),
-                  )
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Column(
-                children: [
-                  Icon(Icons.person),
-                  Text(
-                    "Profile",
-                    style: TextStyle(fontSize: 10),
-                  )
-                ],
-              ),
-            ),
+            tabItem(Icons.bar_chart, "Activity", 3),
+            tabItem(Icons.person, "Profile", 4),
           ],
         ),
       ),
     );
+  }
+
+  Widget tabItem(IconData icon, String label, int index) {
+    return IconButton(
+      onPressed: () => onTabTapped(index),
+      icon: Column(
+        children: [
+          Icon(
+            icon,
+            color: currentIndex == index ? Colors.black : Colors.grey,
+          ),
+          Text(
+            label,
+            style: TextStyle(
+                fontSize: 10,
+                color: currentIndex == index
+                    ? Theme.of(context).primaryColor
+                    : Colors.grey),
+          )
+        ],
+      ),
+    );
+  }
+
+  void onTabTapped(int index) {
+    setState(() {
+      currentIndex = index;
+    });
   }
 }
