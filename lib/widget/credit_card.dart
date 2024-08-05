@@ -15,7 +15,7 @@ class CreditCard extends StatelessWidget {
             Expanded(
               flex: 2,
               child: Container(
-                color: Color.fromARGB(255, 14, 19, 29),
+                color: const Color.fromARGB(255, 14, 19, 29),
                 child: Stack(
                   children: [
                     Positioned(
@@ -26,7 +26,7 @@ class CreditCard extends StatelessWidget {
                         height: 40,
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       bottom: 16,
                       left: 16,
                       child: Text(
@@ -48,7 +48,7 @@ class CreditCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        '\Rp 27.250.780',
+                        'Rp 27.250.780',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 24,
@@ -62,7 +62,7 @@ class CreditCard extends StatelessWidget {
                             backgroundColor: Colors.white.withOpacity(0.8),
                           ),
                           Transform.translate(
-                            offset: Offset(-10, 0),
+                            offset: const Offset(-10, 0),
                             child: CircleAvatar(
                               radius: 15,
                               backgroundColor: Colors.white.withOpacity(0.8),

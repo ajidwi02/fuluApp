@@ -7,7 +7,7 @@ class ScanPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Scan Page"),
+        child: const Text("Scan Page"),
       ),
     );
   }

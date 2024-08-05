@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class TransactionList extends StatelessWidget {
   const TransactionList({super.key});
@@ -10,7 +9,7 @@ class TransactionList extends StatelessWidget {
       child: ListView(
         children: [
           const Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            padding: EdgeInsets.symmetric(horizontal: 25.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -33,7 +32,7 @@ class TransactionList extends StatelessWidget {
             title: Text("Gym"),
             subtitle: Text("Payment"),
             trailing: Text(
-              "-\Rp 150.00",
+              "-Rp 150.00",
               // style: TextStyle(color: Colors.red),
             ),
           ),
@@ -49,7 +48,7 @@ class TransactionList extends StatelessWidget {
             title: Text("Bank BNI 46"),
             subtitle: Text("Deposit"),
             trailing: Text(
-              "+\Rp 15.000.000",
+              "+Rp 15.000.000",
               style: TextStyle(color: Colors.teal),
             ),
           ),
@@ -65,7 +64,7 @@ class TransactionList extends StatelessWidget {
             title: Text("BKK Polines"),
             subtitle: Text("Send"),
             trailing: Text(
-              "-\Rp 4.500.000",
+              "-Rp 4.500.000",
               // style: TextStyle(color: Colors.red),
             ),
           ),
