@@ -1,4 +1,3 @@
-import 'package:fintech_app/widget/credit_card.dart';
 import 'package:flutter/material.dart';
 
 class MyCardPage extends StatelessWidget {
@@ -69,10 +68,10 @@ class FrontCard extends StatelessWidget {
                         height: 40,
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       bottom: 16,
                       left: 16,
-                      child: const Text(
+                      child: Text(
                         "**** **** **** 1932",
                         style: TextStyle(color: Colors.white, fontSize: 18),
                       ),

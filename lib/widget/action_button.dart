@@ -14,7 +14,7 @@ class ActionButtons extends StatelessWidget {
         decoration: BoxDecoration(
             color: const Color.fromARGB(255, 239, 243, 245),
             borderRadius: BorderRadius.circular(15)),
-        child: Row(
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ActionButton(
