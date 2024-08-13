@@ -1,13 +1,9 @@
 import 'package:fintech_app/pages/activity.dart';
 import 'package:fintech_app/pages/home.dart';
-import 'package:fintech_app/pages/myCard.dart';
+import 'package:fintech_app/pages/my_card.dart';
 import 'package:fintech_app/pages/profile.dart';
 import 'package:fintech_app/pages/scan.dart';
 import 'package:flutter/material.dart';
-
-import 'widget/action_button.dart';
-import 'widget/credit_card.dart';
-import 'widget/transaction_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,9 +17,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Fintech App',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color.fromARGB(255, 16, 80, 90)),
-          useMaterial3: true),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 16, 80, 90),
+        ),
+        useMaterial3: true,
+      ),
       home: const MainPage(),
     );
   }
@@ -44,8 +42,9 @@ class _MainPageState extends State<MainPage> {
     const MyCardPage(),
     const ScanPage(),
     const ActivityPage(),
-    const ProfilePage()
+    const ProfilePage(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,15 +56,19 @@ class _MainPageState extends State<MainPage> {
           children: [
             tabItem(Icons.home, "Home", 0),
             tabItem(Icons.credit_card, "My Card", 1),
-            FloatingActionButton(
-              onPressed: () => onTabTapped(2),
-              backgroundColor: Color.fromARGB(255, 16, 80, 90),
-              child: Icon(
-                Icons.qr_code_scanner,
-                color: Colors.white,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: FloatingActionButton(
+                onPressed: () => onTabTapped(2),
+                backgroundColor: const Color.fromARGB(255, 16, 80, 90),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: const Icon(
+                  Icons.qr_code_scanner,
+                  color: Colors.white,
+                ),
               ),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30)),
             ),
             tabItem(Icons.bar_chart, "Activity", 3),
             tabItem(Icons.person, "Profile", 4),
@@ -79,19 +82,23 @@ class _MainPageState extends State<MainPage> {
     return IconButton(
       onPressed: () => onTabTapped(index),
       icon: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
             icon,
-            color: currentIndex == index ? Colors.black : Colors.grey,
+            color: currentIndex == index
+                ? const Color.fromARGB(255, 16, 80, 90)
+                : Colors.grey,
           ),
           Text(
             label,
             style: TextStyle(
-                fontSize: 10,
-                color: currentIndex == index
-                    ? Theme.of(context).primaryColor
-                    : Colors.grey),
-          )
+              fontSize: 10,
+              color: currentIndex == index
+                  ? Theme.of(context).primaryColor
+                  : Colors.grey,
+            ),
+          ),
         ],
       ),
     );
