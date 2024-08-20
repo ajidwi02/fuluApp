@@ -1,4 +1,7 @@
+import 'package:fintech_app/pages/transfer_money.dart';
 import 'package:flutter/material.dart';
+
+import '../pages/deposit_money.dart';
 
 class ActionButtons extends StatelessWidget {
   const ActionButtons({super.key});
@@ -14,24 +17,38 @@ class ActionButtons extends StatelessWidget {
         decoration: BoxDecoration(
             color: const Color.fromARGB(255, 239, 243, 245),
             borderRadius: BorderRadius.circular(15)),
-        child: const Row(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ActionButton(
               icon: Icons.account_balance,
               label: 'Deposit',
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const DepositMoney()));
+              },
             ),
             ActionButton(
               icon: Icons.swap_horiz,
               label: 'Transfer',
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const TransferMoney()));
+              },
             ),
             ActionButton(
               icon: Icons.attach_money,
               label: 'WithDraw',
+              onPressed: () {},
             ),
             ActionButton(
               icon: Icons.apps_sharp,
               label: 'More',
+              onPressed: () {},
             ),
           ],
         ),
@@ -41,10 +58,12 @@ class ActionButtons extends StatelessWidget {
 }
 
 class ActionButton extends StatelessWidget {
-  const ActionButton({super.key, required this.icon, required this.label});
+  const ActionButton(
+      {super.key, required this.icon, required this.label, this.onPressed});
 
   final IconData icon;
   final String label;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +71,7 @@ class ActionButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton.outlined(
-          onPressed: () {},
+          onPressed: onPressed,
           icon: Icon(icon, color: const Color.fromARGB(255, 16, 80, 90)),
         ),
         const SizedBox(
